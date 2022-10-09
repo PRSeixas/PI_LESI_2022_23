@@ -211,7 +211,7 @@ int main() {
 			while (parar != "s" && parar != "n")	//valida a opção escolhida
 			{
 				printf("Você digitou uma opção invalida, digite s ou n.\n");
-				scanf("%c", parar);
+				scanf("%c", &parar);
 			}
 			x++;
 		}
@@ -235,7 +235,7 @@ int main() {
 	while (saldo > 0)
 	{
 		printf("Qual valor da compra? \n");
-		scanf("%d", valor);
+		scanf("%d", &valor);
 		if (saldo < valor)
 		{
 			printf("Você não tem saldo para essa efetuar essa compra, assistente encerrado.\n");
