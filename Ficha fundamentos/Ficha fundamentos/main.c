@@ -27,12 +27,15 @@ int main(){
 	#pragma region Questoes_2_3
 	
 	int idade = 0;
-	char nome;
+	char nome[30];
 	
 	printf("Qual seu nome? \n");
-	scanf("%c", &nome);
+	fgets(nome, sizeof(nome), stdin);
+	//scanf("%c", &nome);
 	printf("Qual sua idade? \n");
 	scanf("%d", &idade);
+
+	printf("Sua idade é %d e seu nome é %s.", idade, nome);
 
 	//Segunda parte, dois números inteiros e escrever sua soma.
 	int x, y, soma;
