@@ -7,13 +7,14 @@
  * \date   October 2022
  *********************************************************************/
 
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 
 int main() {
 	setlocale(LC_ALL, "Portuguese");
-
+	/*
 	//Média, maior e menor nota da turma, 10 alunos.
 #pragma region Questoes_1_2_3
 	int nota, somaNotas, media;
@@ -257,4 +258,62 @@ int main() {
 	printf("O seu saldo restante é: %d", saldo);
 
 #pragma endregion
+
+#pragma region Questao_11
+	//Conta Bancária
+	float saldo = 0, quantia;
+	int tentativas, opcao;
+
+	do
+	{
+		printf("M E N U\n");
+		printf("Opção 1: Consulta de saldo.\n");
+		printf("Opção 2: Depósito.\n");
+		printf("Opção 3: Levantamento.\n");
+		printf("Opção 4: Levantamento sem sucesso.\n");
+		printf("Opção 0: Sair.\n");
+		scanf("%d", opcao);
+
+		switch (opcao)
+		{
+		case 1: printf("O saldo é %.2f euros\n", saldo);
+			break;
+		case 2: printf("Quantia?\n");
+			scanf("%f", quantia);
+			saldo = saldo + quantia;
+			break;
+		case 3: printf("Quantia?\n");
+			scanf("%f", quantia);
+			if (quantia <= saldo)
+			{
+				printf("Levantamento efetuado com sucesso.\n");
+			}
+			else
+			{
+				tentativas++;
+				printf("Saldo insuficiente!\n");
+			}
+			break;
+		case 4: printf("A quantidade de levantamentos sem sucesso: %d\n", tentativas);
+			break;
+
+		default:
+			break;
+		}
+
+	} while (opcao != 0);
+
+	#pragma endregion
+	*/
+
+
+int x, i = 0;
+
+scanf("%d", &x);
+do
+{
+	printf("%d", i);
+	i++;
+} while (i < x);
+
 }
