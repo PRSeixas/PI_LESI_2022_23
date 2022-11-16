@@ -12,9 +12,15 @@
  //Biblioteca nativa de C
 #include <stdio.h>
 #include <locale.h>
+#include <string.h>
 #include "Lista.h"
 
 int main() {
 	setlocale(LC_ALL, "Portuguese");
+
+	pessoa dados[5];
+
+	ImportaDadosParticipantes(dados, "dadosParticipante");
+
 
 }

@@ -1,0 +1,8 @@
+﻿  Funcoes.c
+C:\Users\Pedro Raphael\Documents\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(29,58): warning C4098: 'ImportaDadosParticipantes': função 'void' retornando um valor
+C:\Users\Pedro Raphael\Documents\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(35,14): warning C4098: 'ImportaDadosParticipantes': função 'void' retornando um valor
+C:\Users\Pedro Raphael\Documents\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(43,42): warning C4047: '=': 'char' difere em níveis de indireção de 'char *'
+C:\Users\Pedro Raphael\Documents\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(24,1): warning C4047: 'inicializando': 'char' difere em níveis de indireção de 'char *'
+  Main.c
+  Gerando Código...
+  Trabalho Pratico.vcxproj -> C:\Users\Pedro Raphael\Documents\GitHub\PI_LESI_2022_23\Trabalho Pratico\x64\Debug\Trabalho Pratico.exe
