@@ -20,19 +20,19 @@
  * .
  * 
  * \param p
- * \param linhas
  */
-void IniciaBasePessoa(pessoa p[], int linhas) {
+void IniciaBasePessoa(pessoa p[]) {
 
 	int i = 0;
 
-	for (size_t i = 0; i < linhas; i++)
+	for (size_t i = 0; i < TamPart; i++)
 	{
-		p[i].num = -1;
-		p[i].nome = "0";
-		p[i].telefone = -1;
-		p[i].idade = -1;
-		i++;
+		char vazio[50] = "";
+
+		p[i].num = 0;
+		strcpy(p[i].nome, vazio);
+		p[i].telefone = 0;
+		p[i].idade = 0;
 	}
 }
 
@@ -43,126 +43,159 @@ void IniciaBasePessoa(pessoa p[], int linhas) {
  * .
  * 
  * \param a
- * \param linhas
  */
-void IniciaBaseAtividade(infoAtividade a[], int linhas) {
+void IniciaBaseAtividade(infoAtividade a[]) {
 
 	int i = 0;
+	char vazio[15] = "";
 
-	for (size_t i = 0; i < linhas; i++)
+	for (size_t i = 0; i < TamAtiv; i++)
 	{
-		a[i].idPrat = -1;
-		a[i].data = "0";
-		a[i].atividade = "0";
-		a[i].tempo = -1;
-		a[i].distancia = -1;
-
-		i++;
+		a[i].idPrat = 0;
+		a[i].dia = 0;
+		a[i].mes = 0;
+		a[i].ano = 0;
+		strcpy(a[i].atividade, vazio);
+		a[i].tempo = 0;
+		a[i].distancia = 0;
 	}
 }
 
 #pragma endregion
 
+#pragma region FuncoesPlano
+/**
+ * .
+ * 
+ * \param p
+ */
+void iniciaBasePlano(planoAtividade p[]) {
 
-#pragma region Desenvolvimento
-
-//Função para importar os dados dos participantes do ficheiro 
-bool ImportaDadosParticipantes(pessoa p[], char* nomeFicheiro) {
-
-	FILE* fp;
-	pessoa aux;
 	int i = 0;
+	char vazio[15] = "";
 
-	//Teste se o ficheiro é vazio
-	if ((fp = fopen(nomeFicheiro, "r")) == NULL) return false;
-
-	else
+	for (size_t i = 0; i < TamPlan; i++)
 	{
-		while (fscanf(fp,"%d %s %d %d\n", &aux.num, &aux.nome, &aux.telefone, &aux.idade) != EOF)
-		{
-			//sscanf(c, "%d;%c;%d;%d\n", &aux.num, &aux.nome, &aux.telefone, &aux.idade);
-			p[i].num = aux.num;
-			p[i].nome = aux.nome;
-			p[i].telefone = aux.telefone;
-			p[i].idade = aux.idade;
-
-			i++;
-		}
+		p[i].numPrat = 0;
+		p[i].diaIni = 0;
+		p[i].mesIni = 0;
+		p[i].anoIni = 0;
+		p[i].hIni = 0;
+		p[i].mIni = 0;
+		p[i].diaFim = 0;
+		p[i].mesFim = 0;
+		p[i].anoFim = 0;
+		p[i].hFim = 0;
+		p[i].mFim = 0;
+		strcpy(p[i].ativ, vazio);
+		p[i].dist = 0;
 	}
-		
-/*
-		while (fgets(c, sizeof(c), fp) != EOF)
-		{
-			sscanf(c, "%d;%s;%d;%d\n", &aux.num, aux.nome, &aux.telefone, &aux.idade);
-			p[i].num = aux.num;
-			p[i].nome[30] = aux.nome[30];
-			p[i].telefone = aux.telefone;
-			p[i].idade = aux.idade;
-			i++;
-		}
-	*/
-	
-	fclose(fp);
-
-	return true;
 }
 
-//Função para importar as informações das atividades de um ficheiro
+#pragma endregion
+
+#pragma region FuncoesManipulacaoDados 
+/**
+ * .
+ * Função para importar os dados dos participantes de um ficheiro 
+ * \param p vetor de pessoas (participantes)
+ * \param nomeFicheiro
+ * \return -1 caso erro ou quantidade de participantes
+ */
+int ImportaDadosParticipantes(pessoa p[], char* nomeFicheiro) {
+
+	FILE* fp;
+	int i = 0;
+
+	fp = fopen(nomeFicheiro, "rt");
+
+	//Verificar se o ficheiro é vazio
+	if (fp != NULL)
+	{
+		do
+		{
+			fscanf(fp, "%d;%[^;];%d;%d\n", &p[i].num, p[i].nome, &p[i].telefone, &p[i].idade);
+			i++;
+
+		} while (!feof(fp));
+		fclose(fp);
+
+		return i;
+	}
+	else return -1;
+}
+
+/**
+ * .
+ * Função para importar as informações das atividades de um ficheiro
+ * \param a vetor para informação das atividades
+ * \param nomeFicheiro
+ * \return true caso preenchimento com sucesso ou false se o ficheiro ofr vazio.
+ */
 bool ImportaInfoAtividade(infoAtividade a[], char* nomeFicheiro) {
 
 	FILE* fp;
-	infoAtividade aux;
 	int i = 0;
 
-	if ((fp = fopen(nomeFicheiro, "r")) == NULL) return false;
-	else
+	fp = fopen(nomeFicheiro, "rt");
+
+	if (fp != NULL)
 	{
-		while (fscanf(fp, "%d %s %s %d %d\n", &aux.idPrat, &aux.data, &aux.atividade, &aux.tempo, &aux.distancia) != EOF)
+		do
 		{
-			a[i].idPrat = aux.idPrat;
-			a[i].data = aux.data;
-			a[i].atividade = aux.atividade;
-			a[i].tempo = aux.tempo;
-			a[i].distancia = aux.distancia;
-
+			fscanf(fp, "%d;%d-%d-%d;%[^;];%d;%d\n",
+				&a[i].idPrat,
+				&a[i].dia, &a[i].mes, &a[i].ano,
+				a[i].atividade,
+				&a[i].tempo,
+				&a[i].distancia);
 			i++;
-		}
+
+		} while (!feof(fp));
+		fclose(fp);
+		return true;
 	}
-
-	fclose(fp);
-
-	return true;
+	else return false;
 }
 
-//Função para importar as informações das atividades de um ficheiro
+/**
+ * .
+ * Função para importar as informações das atividades de um ficheiro
+ * \param p vetor de planos de atividades
+ * \param nomeFicheiro
+ * \return true caso preenchimento com sucesso ou false se o ficheiro ofr vazio.
+ */
 bool ImportaPlanoAtividade(planoAtividade p[], char* nomeFicheiro) {
 
 	FILE* fp;
-	planoAtividade aux;
 	int i = 0;
 
-	if ((fp = fopen(nomeFicheiro, "r")) == NULL) return false;
-	else
+	fp = fopen(nomeFicheiro, "rt");
+
+	if (fp != NULL)
 	{
-		while (fscanf(fp, "%d %s %s %s %s %s %d", &aux.numPrat, &aux.dataInicio, &aux.horaInicio, &aux.dataFim,
-		&aux.horaFim, &aux.ativ, &aux.dist) != EOF)
+		do
 		{
-			p[i].numPrat = aux.numPrat;
-			p[i].dataInicio = aux.dataInicio;
-			p[i].horaInicio = aux.horaInicio;
-			p[i].dataFim = aux.dataFim;
-			p[i].horaFim = aux.horaFim;
-			p[i].ativ = aux.ativ;
-			p[i].dist = aux.dist;
-
+			fscanf(fp, "%d;%d-%d-%d;%dh%d;%d-%d-%d;%dh%d;%[^;];%d",
+				&p[i].numPrat,
+				&p[i].diaIni, &p[i].mesIni, &p[i].anoIni,
+				&p[i].hIni, &p[i].mIni,
+				&p[i].diaFim, &p[i].mesFim, &p[i].anoFim,
+				&p[i].hFim, &p[i].mFim,
+				p[i].ativ,
+				&p[i].dist);
 			i++;
-		}
+
+		} while (!feof(fp));
+		fclose(fp);
+		return true;
 	}
-
-	fclose(fp);
-
-	return true;
+	else return false;
 }
+#pragma endregion
+
+
+#pragma region Desenvolvimento
 
 
 #pragma endregion

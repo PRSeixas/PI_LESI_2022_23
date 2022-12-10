@@ -14,56 +14,73 @@
 #include <stdbool.h>
 #include <string.h>
 
-#define dadosC 4		//Quantidade de colunas matriz dados pessoas
-#define infoC 5			//Quantidade de colunas matriz info atividade
-#define planoC 7		//Quantidade de colunas matriz plano atividade
+#define TamPart 4						//Tamanho do vetor de participantes
+#define TamAtiv 5						//Tamanho do vetor informação de atividades
+#define TamPlan 4						//Tamanho do vetor com os planos
 
 
 #pragma region Structs
 //Estrutura para armazenar os dados dos participantes
 typedef struct pessoa {
-	int num;
-	char nome;
-	int telefone;
-	int idade;
+	int num;							//Número identificação
+	char nome[50];						//Nome do participante
+	int telefone;						//Número do telefone
+	int idade;							//Idade do participante
 
 }pessoa;
 
 //Estrutura para armazenar as informações das atividades
 typedef struct infoAtividade {
-	int idPrat;
-	char data;
-	char atividade;
-	int tempo;
-	int distancia;
+	int idPrat;							//Número do participante
+	int dia, mes, ano;					//Dia, mes e ano da atividade
+	//char data[12];						//Data da atividade
+	char atividade[15];					//Tipo de atividae
+	int tempo;							//duração da atividade em minutos
+	int distancia;						//distância da atividade em metros
 
 }infoAtividade;
 
 //Estrutura para armazenar o planeamento das atividades
 typedef struct planoAtividade {
 
-	int numPrat;
-	char dataInicio;
-	char horaInicio;
-	char dataFim;
-	char horaFim;
-	char ativ;
-	int dist;
+	int numPrat;						//Número do participante
+	int diaIni, mesIni, anoIni;			//Dia, mês e ano do início da atividade
+	int hIni, mIni;						//Hora e minuto do início atividade
+	int diaFim, mesFim, anoFim;			//Dia, mês e ano do final da atividade
+	int hFim, mFim;						//Hora e minuto do final da atividade
+	char ativ[15];						//Tipo de atividade
+	int dist;							//Distância em metros
 }planoAtividade;
 
 #pragma endregion
 
 #pragma region AssinaturaFuncoesPessoas
-//Função para limpar o lixo da memória
-void IniciaBasePessoa(pessoa p[], int linhas);
+//Função para limpar o lixo de memória do vetor de participantes.
+void IniciaBasePessoa(pessoa p[]);
 
-//Função para preencher o vetor com os dados dos participantes importados do ficheiro
-bool ImportaDadosParticipantes(pessoa p[], char* nomeFicheiro);
 #pragma endregion
 
 #pragma region AssinaturasFuncoesAtividades
-//Função para limpar o lixo da memória 
-void IniciaBaseAtividade(infoAtividade a[], int linhas);
+//Função para limpar o lixo de memória do vetor das informações das atividades
+void IniciaBaseAtividade(infoAtividade a[]);
+
+#pragma endregion
+
+#pragma region AssinaturasFuncoesPlano
+//Função para limpar o lixo de memória do vetor das informações dos planos
+void iniciaBasePlano(planoAtividade p[]);
+
+#pragma endregion
+
+#pragma region AssinaturasManipulacaoDados
+//Função para preencher o vetor com os dados dos participantes importados do ficheiro
+int ImportaDadosParticipantes(pessoa p[], char* nomeFicheiro);
+
+//Função para preencher o vetor com as informações das atividades
+bool ImportaInfoAtividade(infoAtividade a[], char* nomeFicheiro);
+
+//Função para preencher o vetor com os dados dos planos dos participantes
+bool ImportaPlanoAtividade(planoAtividade p[], char* nomeFicheiro);
 
 #pragma endregion
 

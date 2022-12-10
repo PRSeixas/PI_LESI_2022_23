@@ -18,9 +18,19 @@
 int main() {
 	setlocale(LC_ALL, "Portuguese");
 
-	pessoa dados[5];
+	//testes das funçoes em curso
 
-	ImportaDadosParticipantes(dados, "dadosParticipante");
+	pessoa dados[TamPart];
+	infoAtividade atividades[TamAtiv];
+	planoAtividade plano[TamPlan];
+
+	int QtdParticipantes=0;
+
+	//QtdParticipantes = ImportaDadosParticipantes(dados, "dadosParticipante.txt");
+
+	//ImportaInfoAtividade(atividades, "infoAtividade.txt");
+
+	//ImportaPlanoAtividade(plano, "planoAtividade.txt");
 
 
 }

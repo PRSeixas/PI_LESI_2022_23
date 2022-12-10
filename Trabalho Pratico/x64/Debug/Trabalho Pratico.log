@@ -1,8 +1,6 @@
 ﻿  Funcoes.c
-C:\Users\Pedro Raphael\Documents\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(29,58): warning C4098: 'ImportaDadosParticipantes': função 'void' retornando um valor
-C:\Users\Pedro Raphael\Documents\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(35,14): warning C4098: 'ImportaDadosParticipantes': função 'void' retornando um valor
-C:\Users\Pedro Raphael\Documents\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(43,42): warning C4047: '=': 'char' difere em níveis de indireção de 'char *'
-C:\Users\Pedro Raphael\Documents\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(24,1): warning C4047: 'inicializando': 'char' difere em níveis de indireção de 'char *'
   Main.c
+C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\Main.c(22,9): warning C4101: 'dados': variável local não referenciada
+C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\Main.c(24,17): warning C4101: 'plano': variável local não referenciada
   Gerando Código...
-  Trabalho Pratico.vcxproj -> C:\Users\Pedro Raphael\Documents\GitHub\PI_LESI_2022_23\Trabalho Pratico\x64\Debug\Trabalho Pratico.exe
+  Trabalho Pratico.vcxproj -> C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\x64\Debug\Trabalho Pratico.exe
