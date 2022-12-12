@@ -1,6 +1,3 @@
 ﻿  Funcoes.c
-  Main.c
-C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\Main.c(22,9): warning C4101: 'dados': variável local não referenciada
-C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\Main.c(24,17): warning C4101: 'plano': variável local não referenciada
-  Gerando Código...
+C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(70,64): warning C4029: lista de parâmetros formais declarada diferente da definição
   Trabalho Pratico.vcxproj -> C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\x64\Debug\Trabalho Pratico.exe

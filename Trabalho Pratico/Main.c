@@ -18,19 +18,32 @@
 int main() {
 	setlocale(LC_ALL, "Portuguese");
 
-	//testes das funçoes em curso
+	//testes das funçoes em desenvolvimento
 
-	pessoa dados[TamPart];
+	pessoa participantes[TamPart];
 	infoAtividade atividades[TamAtiv];
 	planoAtividade plano[TamPlan];
+	
+	IniciaBasePessoa(participantes);
+
+	IniciaBaseAtividade(atividades);
+
+	iniciaBasePlano(plano);
 
 	int QtdParticipantes=0;
 
-	//QtdParticipantes = ImportaDadosParticipantes(dados, "dadosParticipante.txt");
+	QtdParticipantes = ImportaDadosParticipantes(participantes, "dadosParticipante.txt");
 
-	//ImportaInfoAtividade(atividades, "infoAtividade.txt");
+	ImportaInfoAtividade(atividades, "infoAtividade.txt");
 
-	//ImportaPlanoAtividade(plano, "planoAtividade.txt");
+	ImportaPlanoAtividade(plano, "planoAtividade.txt");
 
+	char tipo[15] = "Marcha";
+
+	apresentarPlanoPorTipoPeriodoPraticante(plano, tipo, 1);
+
+	//AtividadePorPeriodoParticipante(atividades, tipo);
+
+	//listarInfoAtividadeParticipanteDecrescente(atividades, participantes, tipo);
 
 }

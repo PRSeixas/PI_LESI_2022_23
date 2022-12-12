@@ -15,7 +15,7 @@
 #include <string.h>
 
 #define TamPart 4						//Tamanho do vetor de participantes
-#define TamAtiv 5						//Tamanho do vetor informação de atividades
+#define TamAtiv 6						//Tamanho do vetor informação de atividades
 #define TamPlan 4						//Tamanho do vetor com os planos
 
 
@@ -52,6 +52,11 @@ typedef struct planoAtividade {
 	int dist;							//Distância em metros
 }planoAtividade;
 
+typedef struct data {
+	int dia;
+	int mes;
+	int ano;
+}data;
 #pragma endregion
 
 #pragma region AssinaturaFuncoesPessoas
@@ -64,12 +69,35 @@ void IniciaBasePessoa(pessoa p[]);
 //Função para limpar o lixo de memória do vetor das informações das atividades
 void IniciaBaseAtividade(infoAtividade a[]);
 
+//Função para ordenar de forma crescente um vetor de informação de atividades por número de participante.
+bool ordenarAtividadeCrescenteParticipantes(infoAtividade a[], int tam);
+
+//Função para ordenar de forma decrescente um vetor de informação de atividades por número de participante.
+bool ordenarAtividadesDecrescenteParticipantes(infoAtividade a[]);
+
+//Função para listar o número dos participantes de um vetor de informação de atividades
+void listarNumeroParticipanteAtividade(infoAtividade a[], int tam, char ativ[15]);
+
+//Funcão para listar o número dos participantes que realizaram determinada atividade, num determinado período.
+bool AtividadePorPeriodoParticipante(infoAtividade a[], char tipo[15]);
+
+//Função para listar participantes por ordem decrescente, que realizaram uma determinada atividade, num determinado período.
+int listarInfoAtividadeParticipanteDecrescente(infoAtividade a[], pessoa p[], char ativ[15]);
+
+//Função para calcular a média do tempo de um praticante.
+int calcularMediaPraticante(infoAtividade a[], int codPrat);
+
 #pragma endregion
 
 #pragma region AssinaturasFuncoesPlano
 //Função para limpar o lixo de memória do vetor das informações dos planos
 void iniciaBasePlano(planoAtividade p[]);
 
+//Função para listar um vetor de plano de atividades.
+bool listarPlanoAtividade(planoAtividade p[]);
+
+//Função para apresentar o plano de atividade para um determinado praticante, num determinado período, para um tipo de atividade
+bool apresentarPlanoPorTipoPeriodoPraticante(planoAtividade p[], char ativ[15], int codPrat);
 #pragma endregion
 
 #pragma region AssinaturasManipulacaoDados
@@ -81,6 +109,17 @@ bool ImportaInfoAtividade(infoAtividade a[], char* nomeFicheiro);
 
 //Função para preencher o vetor com os dados dos planos dos participantes
 bool ImportaPlanoAtividade(planoAtividade p[], char* nomeFicheiro);
+
+#pragma endregion
+
+#pragma region OutrasFuncoes
+//Função para leitura do período de datas informada pelo utilizador via stdin
+data lerData();
+
+#pragma endregion
+
+#pragma region FuncoesEmTestes
+
 
 #pragma endregion
 
