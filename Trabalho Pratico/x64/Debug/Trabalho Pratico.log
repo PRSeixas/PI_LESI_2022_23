@@ -1,3 +1,8 @@
 ﻿  Funcoes.c
-C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(70,64): warning C4029: lista de parâmetros formais declarada diferente da definição
+C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(128,20): warning C4047: 'return': 'char' difere em níveis de indireção de 'char [50]'
+C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(165,64): warning C4029: lista de parâmetros formais declarada diferente da definição
+C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(549,7): warning C4101: 'nome': variável local não referenciada
+  Main.c
+  Gerando Código...
+C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\Funcoes.c(132): warning C4715: 'nomePraticante': nem todos os caminhos de controle retornam um valor
   Trabalho Pratico.vcxproj -> C:\Users\pedro\OneDrive\Documentos\GitHub\PI_LESI_2022_23\Trabalho Pratico\x64\Debug\Trabalho Pratico.exe
