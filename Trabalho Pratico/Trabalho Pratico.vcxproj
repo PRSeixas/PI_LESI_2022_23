@@ -127,8 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Atividades.c" />
+    <ClCompile Include="Avaliacao.c" />
     <ClCompile Include="Funcoes.c" />
     <ClCompile Include="Main.c" />
+    <ClCompile Include="Pessoa.c" />
+    <ClCompile Include="Plano.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lista.h" />
